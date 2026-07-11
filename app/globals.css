@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --bg: #f1f0ef;
+  --ink: #000;
+  --accent: #066054;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; color: var(--ink); background: var(--bg); font-family: 'Montserrat', Arial, sans-serif; }
+a { color: inherit; }
+
+.page-shell { min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: 32px; }
+.hero { width: min(1280px, 100%); display: grid; grid-template-columns: 1fr 1fr; gap: 60px; position: relative; }
+.left-column, .right-column { min-width: 0; }
+.headline { font-weight: 700; font-size: clamp(74px, 7.5vw, 110px); line-height: .94; letter-spacing: -0.055em; display: flex; flex-direction: column; margin-top: 8px; }
+.headline span:last-child::after { content: ''; display: inline-block; width: .22em; height: .22em; border-radius: 50%; background: var(--accent); margin: 0 0 .15em .08em; }
+.portfolio-links { margin-top: 54px; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.portfolio-links a { font-size: clamp(36px, 3.4vw, 60px); font-weight: 700; line-height: 1.05; text-decoration: none; border-bottom: 8px solid var(--accent); padding-bottom: 4px; }
+.right-column { position: relative; min-height: 640px; display: flex; flex-direction: column; align-items: flex-start; }
+.identity h1 { margin: 0 0 12px; font-size: clamp(36px, 3.8vw, 55px); line-height: 1; letter-spacing: -0.03em; }
+.top-links { display: flex; flex-wrap: wrap; gap: 18px 30px; }
+.contact-link { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: 20px; white-space: nowrap; }
+.icon-box { width: 22px; height: 22px; border-radius: 3px; display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: white; flex: 0 0 auto; }
+.icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.intro { width: 385px; margin: 34px 0 0; font-size: 20px; line-height: 1.5; }
+.description { width: 385px; margin: 24px 0 0; font-size: 20px; line-height: 1.5; }
+.description strong { font-weight: 700; }
+.skill-list { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px 14px; max-width: 570px; position: relative; z-index: 2; }
+.skill-list span { background: var(--accent); color: #fff; border-radius: 4px; padding: 7px 14px; font-size: 14px; line-height: 1.15; font-weight: 700; white-space: nowrap; }
+.portrait { position: absolute; width: 583px; height: 583px; object-fit: contain; right: -88px; bottom: -20px; pointer-events: none; z-index: 1; }
+.contact-details { margin-top: auto; display: flex; flex-direction: column; gap: 9px; position: relative; z-index: 3; }
+.mobile-only { display: none; }
+
+@media (max-width: 900px) {
+  .page-shell { display: block; padding: 28px 23px 24px; }
+  .hero { display: flex; flex-direction: column; gap: 0; width: 100%; }
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+  .identity.mobile-only { order: 0; }
+  .identity h1 { font-size: 24px; line-height: 1.2; margin-bottom: 8px; }
+  .top-links { justify-content: space-between; gap: 8px; }
+  .contact-link { font-size: 12px; gap: 7px; }
+  .icon-box { width: 19px; height: 19px; }
+  .icon { width: 14px; height: 14px; }
+  .left-column { margin-top: 30px; }
+  .headline { font-size: clamp(58px, 18vw, 76px); line-height: .82; letter-spacing: -0.055em; }
+  .headline span:last-child::after { width: .2em; height: .2em; }
+  .portfolio-links { margin-top: 30px; gap: 18px; }
+  .portfolio-links a { font-size: 24px; border-bottom-width: 4px; padding-bottom: 4px; }
+  .right-column { min-height: auto; margin-top: 38px; }
+  .skill-list { order: 1; margin: 0; max-width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; z-index: 3; }
+  .skill-list span { font-size: 12px; padding: 6px 12px; }
+  .portrait { order: 2; position: relative; width: min(430px, 135vw); height: auto; right: auto; bottom: auto; align-self: center; margin: -6px -70px 0; z-index: 1; }
+  .description { order: 3; width: 100%; margin: -2px 0 0; font-size: 16px; line-height: 1.45; text-align: justify; }
+  .contact-details { order: 4; margin-top: 28px; gap: 7px; }
+  .contact-details .contact-link { font-size: 16px; }
+  .contact-details .icon-box { width: 18px; height: 18px; }
+}
+
+@media (max-width: 360px) {
+  .page-shell { padding-left: 18px; padding-right: 18px; }
+  .top-links { gap: 5px; }
+  .contact-link { font-size: 11px; }
+  .skill-list span { max-width: 100%; white-space: normal; }
+}
